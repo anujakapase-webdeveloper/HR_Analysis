@@ -1,0 +1,6 @@
+Employee_ID,Age,Department,MonthlyIncome,Attrition
+101,25,IT,45000,No
+102,32,HR,38000,Yes
+103,47,Sales,75000,No
+104,28,IT,42000,Yes
+105,35,Finance,55000,No
