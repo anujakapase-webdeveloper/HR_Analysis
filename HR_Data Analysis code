@@ -1,0 +1,43 @@
+import pandas as pd
+
+# Sample HR Data creation
+data = {
+    'Employee_ID': [101, 102, 103, 104, 105],
+    'Age': [25, 32, 47, 28, 35],
+    'Department': ['IT', 'HR', 'Sales', 'IT', 'Finance'],
+    'MonthlyIncome': [45000, 38000, 75000, 42000, 55000],
+    'Attrition': ['No', 'Yes', 'No', 'Yes', 'No']
+}
+
+# DataFrame 
+df = pd.DataFrame(data)
+
+# Data print
+print(df)
+
+print(df.info())
+print("\n--- Summary ---")
+print(df.describe())
+
+# salary>50000
+high_earners = df[df['MonthlyIncome'] > 50000]
+print(high_earners)
+
+# average monthly income of departmnts
+dept_salary = df.groupby('Department')['MonthlyIncome'].mean()
+print(dept_salary)
+
+left_employees = df[df['Attrition'] == 'Yes']
+print("Log jinhone job chhodi:")
+print(left_employees)
+
+attrition_count = df.groupby('Department')['Attrition'].value_counts()
+print("\nDepartment-wise Attrition Count:")
+print(attrition_count)
+
+# Save dataframe file in CVS
+df.to_csv('hr_data.csv', index=False)
+
+# Download file
+from google.colab import files
+files.download('hr_data.csv')
